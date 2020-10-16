@@ -1,17 +1,18 @@
-<!DOCTYPE html>
+]<!DOCTYPE html>
 <html>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
   <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
-
-
+  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+  
+  
   <style>
     body {
       background-color: #0D79F5;
       font-family: 'Anton', sans-serif;
+      color: #fff;
     }
     #logo {
       position: relative;
@@ -39,15 +40,21 @@
   </style>
 </head>
 <body>
+  
   <div id="logo">
-    <img src="splashIsabara.png" class="ribbon"/>
-  </div>
-
-  <div id="pagetitle">
-    <h1>Please enter you PIN code</h1>
+    <img src="splashisabara.png" class="ribbon"/>
   </div>
   
-
+  <form class="" action="shenxun://action1" method="post">
+    <div id="pagetitle">
+      <h1>Please enter you PIN code</h1>
+      <input type="password" name="pincode" id="pincode" value="" autocomplete="off">
+      <input type="submit" value="Submit">
+    </div>
+    
+    
+  </form>
+  
   
 </body>
 </html>
