@@ -1,60 +1,47 @@
-<!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-  <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
-
-
-  <style>
-    body {
-      background-color: #0D79F5;
-      font-family: 'Anton', sans-serif;
-      color: #fff;
-    }
-    #logo {
-      position: relative;
-    }
-    #logo img {
-      position: absolute;
-      top: 0px;
-      right: 0px;
-      width: 60px;
-      height: 60px;
-    }
-    h1 {
-      color: #fff;
-      text-transform: uppercase;
-      font-size: 20px;
-    }
-    #pagetitle{
-      position: absolute;
-      top: 80px;
-      left: 50%;
-      width: 300px;
-      margin:0 0 0 -150px;
-      text-align:center;
-    }
-  </style>
+  <title>Load iOS Deep Link Saved Cookie...</title>
+  <script>
+      <script>
+      function setCookie(cname,cvalue,exdays) {
+        const d = new Date();
+        d.setTime(d.getTime() + (exdays*24*60*60*1000));
+        let expires = "expires=" + d.toUTCString();
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+      }
+      ​
+      function getCookie(cname) {
+        let name = cname + "=";
+        let decodedCookie = decodeURIComponent(document.cookie);
+        let ca = decodedCookie.split(';');
+        for(let i = 0; i < ca.length; i++) {
+          let c = ca[i];
+          while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+          }
+          if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+          }
+        }
+        return "";
+      }
+      ​
+      function checkCookie() {
+        let user = getCookie("username");
+        if (user != "") {
+          alert("Welcome again " + user);
+        } else {
+           user = prompt("Please enter your name:","");
+           if (user != "" && user != null) {
+             setCookie("username", user, 30);
+           }
+        }
+      }
+  </script>
 </head>
-<body>
 
-  <div id="logo">
-    <img src="splashIsabara.png" class="ribbon"/>
-  </div>
-
-  <form class="" action="shenxun://action1" method="post">
-    <div id="pagetitle">
-      <h1>Please enter your PIN code</h1>
-      <input type="password" name="pincode" id="pincode" value="" autocomplete="off">
-      <input type="submit" value="Submit">
-    </div>
-
-
-  </form>
-
+<body onload="checkCookie();">
 
 </body>
+
 </html>
